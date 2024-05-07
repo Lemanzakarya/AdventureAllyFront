@@ -1,0 +1,25 @@
+.wrap{
+    position: relative;
+    width: 60%;
+}
+
+.title{
+    position: absolute;
+    top: 0;
+    left: 15px;
+    font-size: 0.8rem;
+    color:#fff
+}
+
+.input{
+    width: 100%;
+    padding: 20px ;
+    outline: none;
+    border: none;
+    border-radius: 10px;
+    background-color: #86BECA;
+}
+
+.input::placeholder{
+    color: #fff;
+}

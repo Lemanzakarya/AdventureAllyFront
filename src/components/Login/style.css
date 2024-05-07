@@ -1,0 +1,9 @@
+.section{
+background-color: #36565E;
+width: 100vw;
+height: 100vh;
+}
+.formWrap{
+    background-color: #71a2ac;
+    position: unset;
+}
