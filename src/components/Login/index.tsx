@@ -17,9 +17,9 @@ const Login = () => {
 
     console.log(user)
 
-    const handleSubmit = () => {
-        // Form gönderimini işleyebilirsiniz
-    }
+    // const handleSubmit = () => {
+    //     // Form gönderimini işleyebilirsiniz
+    // }
 
     return (
         <section className='section flex justify-content items-center'>
