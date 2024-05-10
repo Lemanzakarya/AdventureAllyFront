@@ -27,8 +27,8 @@ const Login = () => {
                 <h1 className='text-8xl/10 text-white text-center jomhuria-regular'>AdventureAlly</h1>
                 <div className="mt-8">
                 <form className='bg-[#71a2ac] py-16 rounded-lg flex gap-5 flex-col items-center  '>
-                    <Input name='email' type='text' value={user.email} onChange={handleChange} placeholder='E-mail'>{user.email&&'E-mail'}</Input>
-                    <Input name='password' type='password' value={user.password} onChange={handleChange} placeholder='Password'>{user.password&&'Password'}</Input>
+                    <Input name='email' type='text' value={user.email} onChange={handleChange} placeholder='E-mail' style={{ color: 'white' }}>{user.email&&'E-mail'}</Input>
+                    <Input name='password' type='password' value={user.password} onChange={handleChange} placeholder='Password'style={{ color: 'white' }}>{user.password&&'Password'}</Input>
                     <button className='bg-white rounded-full py-3 px-16'>LOGIN</button>
                 </form>
                 </div>
