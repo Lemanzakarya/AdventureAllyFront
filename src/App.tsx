@@ -1,16 +1,14 @@
 import './App.css';
-import { Link } from 'react-router-dom';
+import React from 'react';
 
-function App() {
+const App: React.FC = () => {
   return (
-    <div className="App">
-      <h1>Welcome to the Tour Page</h1>
-      <p>
-        This is the tour page. To login, you can click the button below.
-      </p>
-      <Link to="/login" className="login-button">Login</Link>
-    </div>
+      <div className=''>
+      </div>
   );
 }
 
 export default App;
+
+
+

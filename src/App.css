@@ -2,18 +2,31 @@
     text-align: center;
     margin-top: 50px;
   }
-  
-  .login-button {
-    display: inline-block;
-    background-color: #446f78;
-    color: #fff;
-    text-decoration: none;
-    padding: 10px 20px;
-    border-radius: 5px;
-    margin-top: 20px;
-  }
-  
-  .login-button:hover {
-    background-color: #71a2ac;
-  }
-  
+
+     
+/* Dashboard.css */
+
+.dashboard-container {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 999;
+}
+
+.dashboard-menu {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  background-color: transparent;
+  border: none;
+}
+
+.dashboard-link {
+  color: white;
+  text-decoration: none;
+  margin-right: 20px;
+}
+
+.dashboard-link:hover {
+  color: lightgray;
+}
