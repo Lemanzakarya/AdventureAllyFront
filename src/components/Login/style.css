@@ -7,3 +7,15 @@ height: 100vh;
     background-color: #71a2ac;
     position: unset;
 }
+
+.home {
+    color: white;
+    font-weight: normal;
+    text-decoration: none;
+    position: absolute;
+    top: 30px; 
+    right: 50px; 
+  }
+  
+
+  

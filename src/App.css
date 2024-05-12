@@ -2,31 +2,36 @@
     text-align: center;
     margin-top: 50px;
   }
+  
+  .container{
+    position: relative;
+  }
 
-     
-/* Dashboard.css */
+  .background {
+    position: relative;
+  }
+  
+  .background img {
+    width: 100%; 
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    right: 0;
+    clip-path: polygon(10% 0%, 100% 100%, 100% 0%);
+    -webkit-clip-path: polygon(10% 0%, 100% 100%, 100% 0%);
+    
+  }
 
-.dashboard-container {
-  position: fixed;
-  top: 20px;
-  right: 20px;
-  z-index: 999;
-}
-
-.dashboard-menu {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  background-color: transparent;
-  border: none;
-}
-
-.dashboard-link {
-  color: white;
-  text-decoration: none;
-  margin-right: 20px;
-}
-
-.dashboard-link:hover {
-  color: lightgray;
-}
+  .content {
+    position: absolute;
+    color: #fff; 
+    font-family: Arial, sans-serif; 
+  }
+  
+  .content h1 {
+    font-size: 2.5em;
+  }
+  
+  .content p {
+    font-size: 1.2em;
+  }
