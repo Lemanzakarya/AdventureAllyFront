@@ -2,6 +2,8 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom'; 
 import Input from '../shared/Input';
 import './style.css';
+import { Link } from 'react-router-dom';
+
 
 interface UserState {
     email: string;
@@ -33,7 +35,9 @@ const Login = () => {
                         <button className='bg-white rounded-full py-2 px-10 text-base' onClick={handleSubmit}>LOGIN</button>
                     </form>
                 </div>
-                <p className='text-sm/10 text-white text-center'>Doesn’t have an account yet? <a href="..\signup" className="underline">Sign up</a></p>
+                <p className='text-sm/10 text-white text-center'>
+                <Link to={'/signup'}>Doesn’t have an account yet? </Link>
+                </p>
             </div>
         </section>
     )

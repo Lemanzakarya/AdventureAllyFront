@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import Input from '../shared/Input';
 import '../Login/style.css';
+import { Link } from 'react-router-dom';
+
 
 interface UserState {
     name: string;
@@ -42,7 +44,10 @@ const Signup = () => {
                         <button className='bg-white rounded-full py-2 px-10 text-base'>SIGN UP</button>
                     </form>
                 </div>
-                <p className='text-sm/10 text-white text-center'>Already have an account? <a href="/login" className="underline">Log in</a></p>
+                <p className='text-sm/10 text-white text-center'>Already have an account? 
+                <Link to={'/login'}>
+               <li>Log in</li>
+          </Link></p>
             </div>
         </section>
     )

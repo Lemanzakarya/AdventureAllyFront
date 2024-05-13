@@ -7,11 +7,6 @@ import Signup from './components/Signup'
 
 const router = createBrowserRouter([
   {
-  path:'/',
-  element:<App />,
-  },
-
-  {
     path:'/',
     element:<App />,
   },
@@ -25,7 +20,6 @@ const router = createBrowserRouter([
     path:'signup',
     element:<Signup />,
   },
-
 ])
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
