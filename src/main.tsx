@@ -4,11 +4,16 @@ import './index.css'
 import { RouterProvider, createBrowserRouter } from 'react-router-dom'
 import Login from './components/Login'
 import Signup from './components/Signup'
+import HomePage from './pages/HomePage.tsx'
 
 const router = createBrowserRouter([
   {
     path:'/',
     element:<App />,
+  },
+  {
+    path:'/homepage',
+    element:<HomePage />,
   },
 
   {

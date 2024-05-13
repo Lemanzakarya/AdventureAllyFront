@@ -3,7 +3,6 @@ import Input from '../shared/Input';
 import '../Login/style.css';
 import { Link } from 'react-router-dom';
 
-
 interface UserState {
     name: string;
     surname: string;
@@ -19,7 +18,7 @@ const Signup = () => {
         password: ''
     });
 
-    const handleChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
+    const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         const { name, value } = e.target;
         setUser((prev: UserState) => ({ ...prev, [name]: value }));
     }
@@ -34,7 +33,7 @@ const Signup = () => {
         <section className='section flex justify-content items-center'>
             <div className=' flex-col w-1/3 mx-auto'>
             <h1 className='text-7xl/8 text-white text-center jomhuria-regular'>AdventureAlly</h1>
-                <a href="/" className="home">Home</a>
+            <Link to={'/'}>Home</Link>
                 <div className="mt-6">
                     <form className='bg-[#71a2ac] py-9 rounded-lg flex gap-5 flex-col items-center'>
                         <Input name='name' type='text' value={user.name} onChange={handleChange} placeholder='Name' style={{ color: 'white' }}>{user.name && 'Name'}</Input>
@@ -44,10 +43,10 @@ const Signup = () => {
                         <button className='bg-white rounded-full py-2 px-10 text-base'>SIGN UP</button>
                     </form>
                 </div>
-                <p className='text-sm/10 text-white text-center'>Already have an account? 
-                <Link to={'/login'}>
-               <li>Log in</li>
-          </Link></p>
+                <p className='text-sm/10 text-white text-center'>
+                    Already have an account? 
+                <Link to={'/login'}>Login</Link>
+                </p>
             </div>
         </section>
     )

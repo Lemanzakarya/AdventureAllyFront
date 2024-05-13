@@ -3,35 +3,25 @@
     margin-top: 50px;
   }
   
-  .container{
-    position: relative;
-  }
-
   .background {
     position: relative;
   }
-  
+
   .background img {
     width: 100%; 
-    position: absolute;
     z-index: -1;
-    top: 0;
+    top: -130px;
     right: 0;
-    clip-path: polygon(10% 0%, 100% 100%, 100% 0%);
-    -webkit-clip-path: polygon(10% 0%, 100% 100%, 100% 0%);
-    
+    position: fixed;
+    background-size: cover;
+    clip-path: polygon(0% 0%, 100% 100%, 100% 0%);
+    -webkit-clip-path: polygon(0% 0%, 100% 100%, 100% 0%);
   }
 
-  .content {
-    position: absolute;
-    color: #fff; 
-    font-family: Arial, sans-serif; 
+  h1{
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Gölge tanımı */
   }
-  
-  .content h1 {
-    font-size: 2.5em;
-  }
-  
-  .content p {
-    font-size: 1.2em;
+
+  h2{
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Gölge tanımı */
   }

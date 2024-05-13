@@ -19,7 +19,7 @@ const Login = () => {
         setUser((prev: UserState) => ({ ...prev, [name]: value }));
     }
 
-    const handleSubmit = (): void => {
+    const handleSubmit = () => {
         navigate('/homepage'); 
     }
 
@@ -36,7 +36,8 @@ const Login = () => {
                     </form>
                 </div>
                 <p className='text-sm/10 text-white text-center'>
-                <Link to={'/signup'}>Doesn’t have an account yet? </Link>
+                  Doesn’t have an account yet?
+                  <Link to={'/signup'}> Signup</Link>
                 </p>
             </div>
         </section>
