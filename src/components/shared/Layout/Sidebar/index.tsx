@@ -1,15 +1,19 @@
 import { Link } from 'react-router-dom';
+import logo from '../../../../assets/images/logo.png'
 
 const Sidebar = () => {
 
   return (
     <div>
       <aside className="flex" aria-label="Sidebar">
-        <div className="p-10 fixed h-full overflow-y-auto rounded bg-green">
-          <ul className="mt-20 space-y-2">
+        <div className="p-10 fixed h-full overflow-y-auto rounded bg-darkgreen">
+          <ul className="mt-20 ml-2 space-y-2">
+          <div className='flex items-center flex-1'>
+          <span><img src={logo} className='size-24 object-cover'/></span>
+        </div>
           <li>
               <Link to={'/homepage'}>
-                <span className={`flex items-center p-2 pr-14 text-base font-normal  hover:text-green text-white rounded-lg hover:bg-white ${location.pathname === '/homepage' ? 'bg-darkgreen' : ''}`}>Home</span>
+                <span className={`flex items-center p-2 pr-14 text-base font-normal  hover:text-green text-white rounded-lg hover:bg-white  ${location.pathname === '/homepage' ? 'bg-lightgreen' : ''}`}>Home</span>
               </Link>
             </li>
             <li>

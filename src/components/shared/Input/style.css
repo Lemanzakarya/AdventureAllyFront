@@ -7,13 +7,13 @@
     position: absolute;
     top: 0;
     left: 15px;
-    font-size: 0.8rem;
+    font-size: 0.7rem;
     color:#fff
 }
 
 .input{
     width: 100%;
-    padding: 14px ;
+    padding: 10px ;
     outline: none;
     border: none;
     border-radius: 10px;

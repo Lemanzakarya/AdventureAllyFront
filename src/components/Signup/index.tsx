@@ -1,51 +1,146 @@
 import React, { useState } from 'react';
 import Input from '../shared/Input';
 import '../Login/style.css';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import axios from 'axios';
 
 interface UserState {
     name: string;
     surname: string;
     email: string;
     password: string;
+    userName: string;
+    confirmPassword: string;
 }
 
 const Signup = () => {
+    const navigate = useNavigate();
     const [user, setUser] = useState<UserState>({
         name: '',
         surname: '',
         email: '',
-        password: ''
+        password: '',
+        userName: '',
+        confirmPassword: ''
     });
+    const [showError, setShowError] = useState(false);
+    const [emailError, setEmailError] = useState('');
+    const [nameError, setNameError] = useState('');
+    const [passwordError, setPasswordError] = useState('');
+    const [surnameError, setSurnameError] = useState('');
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         const { name, value } = e.target;
         setUser((prev: UserState) => ({ ...prev, [name]: value }));
+        
+        setShowError(false);
     }
 
-    console.log(user)
+    const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+        e.preventDefault();
 
-    // const handleSubmit = () => {
-    //     // Form gönderimini işleyebilirsiniz
-    // }
+        if (!user.name || !user.surname || !user.email || !user.password ||!user.confirmPassword) {
+            setShowError(true);
+            return;
+        }
+
+        if (user.password !== user.confirmPassword) {
+            setShowError(true);
+            return;
+        }
+
+        if (emailError || nameError || passwordError || surnameError) {
+            setShowError(true);
+            return;
+        }
+
+        const payload = {
+            firstName: user.name,
+            lastName: user.surname,
+            email: user.email,
+            userName: user.name + (Math.random()*1000000).toString(),
+            password: user.password,
+            confirmPassword: user.confirmPassword
+        };
+
+        try {
+            await axios.post('https://adventureallyweb.azurewebsites.net/api/Account/register', payload);
+            handleClear();
+            navigate('/login')
+        } catch (error) {
+            return error;
+        }
+    }
+
+    const handleClear = () => {
+        setUser({
+            name: '',
+            surname: '',
+            email: '',
+            password: '',
+            userName: '',
+            confirmPassword: ''
+        });
+    }
+
+    const validateEmail = (email: string) => {
+        const regex = /\S+@\S+\.\S+/;
+        if (!regex.test(email)) {
+            setEmailError('Invalid email address');
+        } else {
+            setEmailError('');
+        }
+    }
+
+    const validateName = (name: string) => {
+        const regex = /^[a-zA-Z0-9_-]{3,16}$/;
+        if (!regex.test(name)) {
+            setNameError('Name must be between 3 and 16 characters and can only contain letters, numbers, underscores, and hyphens');
+        } else {
+            setNameError('');
+        }
+    }
+
+    const validatePassword = (password: string) => {
+        const regex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/;
+        if (!regex.test(password)) {
+            setPasswordError('Password must contain at least 8 characters, including at least one uppercase letter, one lowercase letter, and one number');
+        } else {
+            setPasswordError('');
+        }
+    }
+
+    const validateSurname = (surname: string) => {
+        if (!surname.trim()) {
+            setSurnameError('Surname is required');
+        } else {
+            setSurnameError('');
+        }
+    }
 
     return (
         <section className='section flex justify-content items-center'>
             <div className=' flex-col w-1/3 mx-auto'>
-            <h1 className='text-7xl/8 text-white text-center jomhuria-regular'>AdventureAlly</h1>
-            <Link to={'/'}>Home</Link>
-                <div className="mt-6">
-                    <form className='bg-[#71a2ac] py-9 rounded-lg flex gap-5 flex-col items-center'>
-                        <Input name='name' type='text' value={user.name} onChange={handleChange} placeholder='Name' style={{ color: 'white' }}>{user.name && 'Name'}</Input>
-                        <Input name='surname' type='text' value={user.surname} onChange={handleChange} placeholder='Surname' style={{ color: 'white' }}>{user.surname && 'Surname'}</Input>
-                        <Input name='email' type='text' value={user.email} onChange={handleChange} placeholder='E-mail' style={{ color: 'white' }}>{user.email && 'E-mail'}</Input>
-                        <Input name='password' type='password' value={user.password} onChange={handleChange} placeholder='Password' style={{ color: 'white' }}>{user.password && 'Password'}</Input>
-                        <button className='bg-white rounded-full py-2 px-10 text-base'>SIGN UP</button>
+                <h1 className='text-7xl/3 text-white text-center jomhuria-regular mt-10'>AdventureAlly</h1>
+                <Link className='home' to={'/'}>Home</Link>
+                <div className="mt-4">
+                    <form className='bg-[#71a2ac] py-5 mx-3 rounded-lg flex gap-5 flex-col items-center text-sm' onSubmit={handleSubmit}>
+                        <Input name='name' type='text' value={user.name} onChange={(e:any) => { handleChange(e); validateName(e.target.value); }} placeholder='Name' style={{ color: 'white' }}>{user.name && 'Name'}</Input>
+                        <Input name='surname' type='text' value={user.surname} onChange={(e:any) => { handleChange(e); validateSurname(e.target.value); }} placeholder='Surname' style={{ color: 'white' }}>{user.surname && 'Surname'}</Input>
+                        <Input name='email' type='text' value={user.email} onChange={(e:any) => { handleChange(e); validateEmail(e.target.value); }} placeholder='E-mail' style={{ color: 'white' }}>{user.email && 'E-mail'}</Input>
+                        <Input name='password' type='password' value={user.password} onChange={(e:any) => { handleChange(e); validatePassword(e.target.value); }} placeholder='Password' style={{ color: 'white' }}>{user.password && 'Password'}</Input>
+                        <Input name='confirmPassword' type='password' value={user.confirmPassword} onChange={handleChange} placeholder='Confirm Password' style={{ color: 'white' }}>{user.confirmPassword && 'Confirm Password'}</Input>
+                        {showError && <p className="text-red-700 text-center">Please fill in all fields and make sure passwords match!</p>}
+                        {emailError && <p className="text-red-700 text-center">{emailError}</p>}
+                        {surnameError && <p className="text-red-700 text-center">{surnameError}</p>}
+                        {nameError && <p className="text-red-700 text-center">{nameError}</p>}
+                        {passwordError && <p className="text-red-700 text-center">{passwordError}</p>}
+                        <button type="submit" className='bg-white rounded-full py-2 px-10 text-base'>SIGN UP</button>
                     </form>
                 </div>
                 <p className='text-sm/10 text-white text-center'>
                     Already have an account? 
-                <Link to={'/login'}>Login</Link>
+                    <Link to={'/login'}> Login</Link>
                 </p>
             </div>
         </section>
@@ -53,5 +148,3 @@ const Signup = () => {
 }
 
 export default Signup;
-
-
