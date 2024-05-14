@@ -24,25 +24,26 @@ const Login = () => {
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
 
-        
-        if (user.email && user.password) {
-            navigate('/homepage');
-        } else {
-            setShowError(true);
-        }
-
         const payload = {
             email: user.email,
             password: user.password,
         };
-
-        try {
-            await axios.post('https://adventureallyweb.azurewebsites.net/api/Account/authenticate', payload);
-            handleClear();
-            navigate('/homepage')
-        } catch (error) {
-            return error;
+        
+        if (user.email && user.password) {
+            try {
+                // var x = await axios.post('https://adventureallyweb.azurewebsites.net/api/Account/authenticate', payload);
+                // console.log(x)
+                // handleClear();
+                navigate('/homepage')
+            } catch (error) {
+                return error;
+            }
+        } else {
+            setShowError(true);
         }
+
+
+    
     }
 
     

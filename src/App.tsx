@@ -13,7 +13,7 @@ const App: React.FC = () => {
       </div>
       <Navbar />
       <div className="grid grid-cols-2 text-white mt-24">
-      <div>      
+      <div className='pl-6'>      
           <h1 className='text-2xl'>Welcome to AdventureAlly</h1>     
           <h2 className='mt-3 text-xl pr-6'> AdventureAlly is the ultimate travel app, offering unique experiences, 
             exclusive deals, and seamless itinerary planning. Say hello to stress-free 
