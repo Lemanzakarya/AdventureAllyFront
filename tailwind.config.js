@@ -12,6 +12,7 @@ export default {
         'lightgreen': '#253C41',
         'darkergreen':'#21363A',
       },
+
     },
   },
   plugins: [],

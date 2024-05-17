@@ -4,7 +4,7 @@ import logo from '../../../../assets/images/logo.png'
 const Sidebar = () => {
   const location = useLocation();
   return (
-        <div className="flex flex-col items-left  h-full  rounded bg-lightgreen min-w-60  min-h-screen ">
+        <div className="flex flex-col items-left  h-full  rounded bg-lightgreen min-w-60  min-h-screen relative">
         <div className=''>
           <span><img src={logo} className='ml-16 size-24 object-cover'/></span>
         </div>

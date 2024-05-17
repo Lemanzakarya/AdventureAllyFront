@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import Input from '../shared/Input';
 import './style.css';
 import { Link } from 'react-router-dom';
-// import axios from 'axios';
+import axios from 'axios';
 
 interface UserState {
     email: string;
@@ -24,16 +24,16 @@ const Login = () => {
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
 
-        // const payload = {
-        //     email: user.email,
-        //     password: user.password,
-        // };
+        const payload = {
+            email: user.email,
+            password: user.password,
+        };
         
         if (user.email && user.password) {
             try {
-                // var x = await axios.post('https://adventureallyweb.azurewebsites.net/api/Account/authenticate', payload);
-                // console.log(x)
-                // handleClear();
+                var x = await axios.post('https://adventureallyweb.azurewebsites.net/api/Account/authenticate', payload);
+                console.log(x)
+                handleClear();
                 navigate('/homepage')
             } catch (error) {
                 return error;
@@ -41,18 +41,15 @@ const Login = () => {
         } else {
             setShowError(true);
         }
-
-
-    
     }
 
     
-    // const handleClear = () => {
-    //     setUser({
-    //         email: '',
-    //         password: '',
-    //     });
-    // }
+    const handleClear = () => {
+        setUser({
+            email: '',
+            password: '',
+        });
+    }
 
     return (
         <section className='section flex justify-content items-center p-10'>
