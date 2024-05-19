@@ -11,31 +11,31 @@ interface Tour {
 const tours: Tour[] = [
   {
     title: "Tour 1",
-    location: "Mamak, Ankara",
+    location: "Konyaalti, Antalya",
     price: "599,99",
     tags: ["ATV Tour", "Rafting", "Camping"],
   },
   {
     title: "Tour 2",
-    location: "Mamak, Ankara 2",
+    location: "Konyaalti, Antalya 2",
     price: "499,00",
     tags: ["ATV Tour"],
   },
   {
     title: "Tour 3",
-    location: "Mamak, Ankara 3",
+    location: "Konyaalti, Antalya 3",
     price: "809,99",
     tags: ["Rafting", "Camping"],
   },
   {
     title: "Tour 4",
-    location: "Mamak, Ankara 4",
+    location: "Konyaalti, Antalya 4",
     price: "300,00",
     tags: ["Camping", "Hiking"],
   },
   {
     title: "Tour 5",
-    location: "Mamak, Ankara 5",
+    location: "Konyaalti, Antalya 5",
     price: "256,99",
     tags: ["Rafting"],
   },
