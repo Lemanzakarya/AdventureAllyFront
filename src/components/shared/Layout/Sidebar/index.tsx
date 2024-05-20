@@ -10,13 +10,8 @@ const Sidebar = () => {
         </div>
           <ul className="mt-16 ml-4 space-y-2">
           <li>
-              <Link to={'/homepage'}>
+          <Link to={'/homepage'}>
                 <span className={`flex items-center p-2 pr-14 text-base font-normal  hover:text-white text-white rounded-lg hover:bg-darkergreen  ${location.pathname === '/homepage' ? 'bg-darkgreen' : ''}`}>Home</span>
-              </Link>
-            </li>
-            <li>
-              <Link to={'/search'}>
-                <span className={`flex items-center p-2 pr-14 text-base font-normal hover:text-white text-white rounded-lg hover:bg-darkergreen  ${location.pathname === '/search' ? 'bg-darkgreen' : ''}`}>Search</span>
               </Link>
             </li>
             <li>

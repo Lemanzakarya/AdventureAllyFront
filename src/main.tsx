@@ -6,10 +6,10 @@ import Login from './components/Login'
 import Signup from './components/Signup'
 import HomePage from './pages/HomePage/HomePage.tsx'
 import { Layout } from './components/shared/Layout/layout.tsx'
-import Search from './pages/Search/Search.tsx'
 import Tours from './pages/Tours/Tours.tsx'
 import Map from './pages/Map/Map.tsx'
 import Profile from './pages/Profile/Profile.tsx'
+import Verify from './components/Verify/Verify.tsx';
 
 const router = createBrowserRouter([{
   element: (
@@ -19,10 +19,6 @@ const router = createBrowserRouter([{
     {
       path:'/homepage',
       element:<HomePage />,
-    },
-    {
-      path:'/search',
-      element:<Search />,
     },
     {
       path:'/tour',
@@ -50,6 +46,10 @@ const router = createBrowserRouter([{
   {
     path:'/signup',
     element:<Signup />,
+  },
+  {
+    path:'/verify',
+    element:<Verify />,
   },
 
 ])

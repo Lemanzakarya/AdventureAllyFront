@@ -9,7 +9,6 @@ interface UserState {
     surname: string;
     email: string;
     password: string;
-    userName: string;
     confirmPassword: string;
 }
 
@@ -20,7 +19,6 @@ const Signup = () => {
         surname: '',
         email: '',
         password: '',
-        userName: '',
         confirmPassword: ''
     });
     const [showError, setShowError] = useState(false);
@@ -34,12 +32,17 @@ const Signup = () => {
         setUser((prev: UserState) => ({ ...prev, [name]: value }));
         
         setShowError(false);
+        
+        if (name === 'email') validateEmail(value);
+        if (name === 'name') validateName(value);
+        if (name === 'password') validatePassword(value);
+        if (name === 'surname') validateSurname(value);
     }
 
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
 
-        if (!user.name || !user.surname || !user.email || !user.password ||!user.confirmPassword) {
+        if (!user.name || !user.surname || !user.email || !user.password || !user.confirmPassword) {
             setShowError(true);
             return;
         }
@@ -58,17 +61,23 @@ const Signup = () => {
             firstName: user.name,
             lastName: user.surname,
             email: user.email,
-            userName: user.name + (Math.random()*1000000).toString(),
+            userName: user.name + (Math.random() * 1000000).toString(),
             password: user.password,
-            confirmPassword: user.confirmPassword
+            confirmPassword: user.password
         };
 
         try {
             await axios.post('https://adventureallyweb.azurewebsites.net/api/Account/register', payload);
             handleClear();
-            navigate('/login')
-        } catch (error) {
-            return error;
+            const verificationCode = Math.floor(100000 + Math.random() * 900000).toString();
+            localStorage.setItem('verificationCode', verificationCode);
+            localStorage.setItem('user', JSON.stringify(user));
+
+            alert('Your verification code is: ' + verificationCode);
+            navigate('/verify');
+
+        } catch (error: any) {
+            console.error('Signup error:', error.response ? error.response.data : error.message);
         }
     }
 
@@ -78,7 +87,6 @@ const Signup = () => {
             surname: '',
             email: '',
             password: '',
-            userName: '',
             confirmPassword: ''
         });
     }
@@ -125,10 +133,10 @@ const Signup = () => {
                 <Link className='home' to={'/'}>Home</Link>
                 <div className="mt-4">
                     <form className='bg-[#71a2ac] py-5 mx-3 rounded-lg flex gap-5 flex-col items-center text-sm' onSubmit={handleSubmit}>
-                        <Input name='name' type='text' value={user.name} onChange={(e:any) => { handleChange(e); validateName(e.target.value); }} placeholder='Name' style={{ color: 'white' }}>{user.name && 'Name'}</Input>
-                        <Input name='surname' type='text' value={user.surname} onChange={(e:any) => { handleChange(e); validateSurname(e.target.value); }} placeholder='Surname' style={{ color: 'white' }}>{user.surname && 'Surname'}</Input>
-                        <Input name='email' type='text' value={user.email} onChange={(e:any) => { handleChange(e); validateEmail(e.target.value); }} placeholder='E-mail' style={{ color: 'white' }}>{user.email && 'E-mail'}</Input>
-                        <Input name='password' type='password' value={user.password} onChange={(e:any) => { handleChange(e); validatePassword(e.target.value); }} placeholder='Password' style={{ color: 'white' }}>{user.password && 'Password'}</Input>
+                        <Input name='name' type='text' value={user.name} onChange={handleChange} placeholder='Name' style={{ color: 'white' }}>{user.name && 'Name'}</Input>
+                        <Input name='surname' type='text' value={user.surname} onChange={handleChange} placeholder='Surname' style={{ color: 'white' }}>{user.surname && 'Surname'}</Input>
+                        <Input name='email' type='text' value={user.email} onChange={handleChange} placeholder='E-mail' style={{ color: 'white' }}>{user.email && 'E-mail'}</Input>
+                        <Input name='password' type='password' value={user.password} onChange={handleChange} placeholder='Password' style={{ color: 'white' }}>{user.password && 'Password'}</Input>
                         <Input name='confirmPassword' type='password' value={user.confirmPassword} onChange={handleChange} placeholder='Confirm Password' style={{ color: 'white' }}>{user.confirmPassword && 'Confirm Password'}</Input>
                         {showError && <p className="text-red-700 text-center">Please fill in all fields and make sure passwords match!</p>}
                         {emailError && <p className="text-red-700 text-center">{emailError}</p>}
@@ -144,7 +152,7 @@ const Signup = () => {
                 </p>
             </div>
         </section>
-    )
+    );
 }
 
 export default Signup;

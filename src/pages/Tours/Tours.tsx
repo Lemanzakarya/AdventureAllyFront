@@ -55,9 +55,9 @@ export default function TourDetail() {
   // }, []);
 
   return (
-    <div className="items-center grid grid-cols-2 gap-4">
+    <div className="m-auto items-center w-full">
       {tourData.map((tour, index) => (
-        <div>
+        <div className=" py-2">
           <Card
             key={index}
             title={tour.title}
