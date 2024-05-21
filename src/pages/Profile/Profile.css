@@ -1,0 +1,125 @@
+/* Profile.css */
+.profile-card {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    padding: 20px;
+    margin: 0 auto;
+    max-width: 600px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease-in-out;
+}
+
+.profile-picture img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 20px;
+}
+
+.profile-info {
+    text-align: justify;
+    margin-bottom: 20px;
+}
+
+.profile-info h1 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.profile-info p {
+    font-size: 16px;
+    margin-bottom: 5px;
+}
+
+
+.edit-profile-card {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+    padding: 20px;
+    margin: 0 auto;
+    max-width: 600px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease-in-out;
+}
+
+.reset-password a {
+    color: #076f86;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.reset-password a:hover {
+    text-decoration: none;
+}
+
+
+.edit-icon button,
+.edit-actions button {
+    background-color: #36565E;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 10px 5px;
+    transition: background-color 0.3s ease;
+}
+
+.edit-icon button:hover,
+.edit-actions button:hover {
+    background-color: #253C41;
+}
+
+.edit-actions {
+    display: flex;
+    justify-content: flex-start;
+    width: 100%;
+}
+
+.edit-profile-card label {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+    margin-bottom: 15px;
+}
+
+.edit-profile-card input {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+
+    .profile-card,
+    .edit-profile-card {
+        padding: 15px;
+        width: 100%;
+    }
+
+    .profile-info h1 {
+        font-size: 20px;
+    }
+
+    .profile-info p {
+        font-size: 14px;
+    }
+
+    .edit-icon button,
+    .edit-actions button {
+        padding: 8px 15px;
+    }
+}
