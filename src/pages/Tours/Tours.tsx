@@ -47,6 +47,12 @@ const TourDetail: React.FC = () => {
   const [tagFilter, setTagFilter] = useState<string>("");
 
   useEffect(() => {
+  // useEffect(() => {
+  //   axios.get("/api/tours")
+  //     .then((response) => response.json())
+  //     .then((data: Tour[]) => setTourData(data))
+  //     .catch((error) => console.error(error));
+  // }, []);
     setTourData(tours);
   }, []);
 
