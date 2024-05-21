@@ -94,7 +94,7 @@ const TourDetail: React.FC = () => {
         />
         {/* Filter button */}
         <button
-          className="p-2 bg-blue-500 text-white rounded"
+          className="p-2 bg-lightgreen text-white rounded"
           onClick={handleFilterClick}
         >
           Filter
