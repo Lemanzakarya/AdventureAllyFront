@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import Card from "../../components/shared/Card";
-// import axios from "axios";
 
 interface Tour {
   title: string;
@@ -48,12 +47,6 @@ const TourDetail: React.FC = () => {
   const [tagFilter, setTagFilter] = useState<string>("");
 
   useEffect(() => {
-  // useEffect(() => {
-  //   axios.get("/api/tours")
-  //     .then((response) => response.json())
-  //     .then((data: Tour[]) => setTourData(data))
-  //     .catch((error) => console.error(error));
-  // }, []);
     setTourData(tours);
   }, []);
 

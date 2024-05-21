@@ -3,7 +3,6 @@ import { useNavigate } from 'react-router-dom';
 import Input from '../shared/Input';
 import './style.css';
 import { Link } from 'react-router-dom';
-import axios from 'axios';
 
 interface UserState {
     email: string;
@@ -26,10 +25,10 @@ const Login = () => {
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
     
-        const payload = {
-            email: user.email,
-            password: user.password,
-        };
+        // const payload = {
+        //     email: user.email,
+        //     password: user.password,
+        // };
         
         if (user.email && user.password) {
             try {
