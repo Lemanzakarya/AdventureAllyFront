@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import './Profile.css';
 import profilePicture from '../../assets/images/profile.jpg';
 import EditProfile from './EditProfile';
