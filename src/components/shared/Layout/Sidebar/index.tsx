@@ -38,7 +38,7 @@ const WeatherWidget: React.FC<WeatherWidgetProps> = ({ latitude, longitude }) =>
   return (
     <div className="text-white">
      <div className="bg-green p-4 rounded-lg m-4 text-center text-white shadow-lg">
-      <p className="text-xl font-bold">{(weather.main.temp - 273).toFixed()}°C</p>
+      <p className="text-2xl font-bold">{(weather.main.temp - 273).toFixed()}°C</p>
       <p className="text-base mt-2">{'Humidity: '+weather.main.humidity+'%'}</p>
       <p className="text-base mt-2">{'Location: '+weather.sys.country+' , '+weather.name}</p>
     </div>

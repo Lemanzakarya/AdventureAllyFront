@@ -38,7 +38,10 @@ const EditProfile = ({ user, onSave, onCancel, onResetPassword }: any) => {
         <form className="edit-profile-card" onSubmit={handleSubmit}>
             <div className="profile-picture">
                 <img src={profilePicture || user.profilePicture} alt="Profile" />
-                <input type="file" onChange={handleProfilePictureChange} />
+                <label className='my-10' htmlFor="file-upload">
+                    <span className="button">Select File</span>
+                    <input id="file-upload" type="file" onChange={handleProfilePictureChange} accept="image/*" style={{ display: 'none' }} />
+                </label>
                 <div className="edit-actions">
                     <button type="submit">Save</button>
                     <button type="button" onClick={onCancel}>Cancel</button>
