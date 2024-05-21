@@ -11,6 +11,8 @@
   },
   "dependencies": {
     "@radix-ui/react-slot": "^1.0.2",
+    "@react-google-maps/api": "^2.19.3",
+    "@types/googlemaps": "^3.43.3",
     "@types/react-router-dom": "^5.3.3",
     "antd": "^5.17.2",
     "axios": "^1.6.8",

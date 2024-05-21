@@ -75,7 +75,7 @@ const TourDetail: React.FC = () => {
   };
 
   return (
-    <div className="m-auto items-center w-full max-w-3xl overflow-x-hidden">
+    <div className="m-auto pt-4 items-center w-full max-w-3xl">
       <div className="flex justify-between mb-4">
         {/* Location search bar */}
         <input

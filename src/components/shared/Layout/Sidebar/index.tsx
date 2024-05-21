@@ -4,7 +4,7 @@ import logo from '../../../../assets/images/logo.png';
 const Sidebar = () => {
   const location = useLocation();
   return (
-    <div className="fixed top-0 left-0 h-full bg-lightgreen min-w-64 min-h-screen">
+    <div className="fixed top-0 left-0 h-full bg-lightgreen min-w-60 min-h-screen">
       <div className="">
         <span><img src={logo} className="ml-16 size-24 object-cover" alt="Logo" /></span>
       </div>

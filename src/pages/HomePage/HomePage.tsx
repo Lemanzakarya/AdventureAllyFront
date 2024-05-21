@@ -1,7 +1,7 @@
 const HomePage = () => {
     return (
         <div>
-        <h1 className='text-6xl ml-10 m-5 text-white text-left jomhuria-regular'>Popular</h1>
+        <h1 className='text-6xl ml-10 m-3 text-white text-left jomhuria-regular'>Popular</h1>
         <main className="flex">
       <div className="flex h-fit scroll-smooth scroll-pl-8 snap-mandatory snap-x overflow-x-scroll max-w-full">
         <div className="shrink-0 scroll-ml-6 snap-always snap-center">

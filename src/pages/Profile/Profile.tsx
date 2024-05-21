@@ -33,7 +33,7 @@ const Profile = () => {
     }
 
     return (
-        <div className="profile-card">
+        <div className="profile-card ">
             <div className="profile-picture">
                 <img src={user.profilePicture} alt="Profile" />
             </div>
