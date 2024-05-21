@@ -8,12 +8,12 @@ const center = {
 
 const mapContainerStyle = {
   width: '100%',
-  height: '80vh'
+  height: '88vh'
 };
 
 const inputStyle = {
   width: '300px',
-  height: '40px',
+  height: '42px',
   paddingLeft: '20px'
 };
 
