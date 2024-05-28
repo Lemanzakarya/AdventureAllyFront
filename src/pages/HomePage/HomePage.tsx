@@ -1,73 +1,96 @@
-const HomePage = () => {
-    return (
-        <div>
-        <h1 className='text-6xl ml-10 m-3 text-white text-left jomhuria-regular'>Popular</h1>
-        <main className="flex">
-      <div className="flex h-fit scroll-smooth scroll-pl-8 snap-mandatory snap-x overflow-x-scroll max-w-full">
-        <div className="shrink-0 scroll-ml-6 snap-always snap-center">
-          <img src="https://images.unsplash.com/photo-1604999565976-8913ad2ddb7c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=320&h=160&q=80" />
+import React, { useState, useEffect } from "react";
+import Card from "../../components/shared/Card/homecard";
+
+interface Tour {
+  title: string;
+}
+
+const tours: Tour[] = [
+  {
+    title: "Tour 1",
+  },
+  {
+    title: "Tour 2",
+  },
+  {
+    title: "Tour 3",
+  },
+  {
+    title: "Tour 4",
+  },
+  {
+    title: "Tour 5",
+  },
+
+  {
+    title: "Tour 2",
+  },
+  {
+    title: "Tour 3",
+  },
+  {
+    title: "Tour 4",
+  },
+  {
+    title: "Tour 5",
+  },
+  {
+    title: "Tour 2",
+  },
+  {
+    title: "Tour 3",
+  },
+  {
+    title: "Tour 4",
+  },
+  {
+    title: "Tour 5",
+  },
+  {
+    title: "Tour 2",
+  },
+  {
+    title: "Tour 3",
+  },
+  {
+    title: "Tour 4",
+  },
+  {
+    title: "Tour 5",
+  },
+];
+
+export default function TourDetail() {
+  const [tourData, setTourData] = useState<Tour[]>([]);
+
+  useEffect(() => {
+    setTourData(tours);
+  }, []);
+
+  return (
+    <div>
+    <h1 className='text-6xl ml-10 m-3 text-white text-left jomhuria-regular'>Popular</h1>
+    <div className="flex flex-nowrap overflow-x-auto gap-2 p-2">
+      {tourData.map((tour, index) => (
+        <div key={index}>
+          <Card
+            title={tour.title}
+            imgUrl={""}
+          />
         </div>
-        <div className="shrink-0 scroll-ml-6 snap-always snap-center">
-         <img src="https://images.unsplash.com/photo-1622890806166-111d7f6c7c97?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=320&h=160&q=80" />
+      ))}
+    </div>
+        <h1 className='text-6xl ml-10 m-3 text-white text-left jomhuria-regular'>You May Like</h1>
+        <div className="flex flex-nowrap overflow-x-auto gap-2 p-2">
+          {tourData.map((tour, index) => (
+            <div key={index}>
+              <Card
+                title={tour.title}
+                imgUrl={""}
+              />
+            </div>
+          ))}
         </div>
-        <div className="shrink-0 scroll-ml-6 snap-always snap-center">
-         <img src="https://images.unsplash.com/photo-1590523277543-a94d2e4eb00b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=320&h=160&q=80" />
         </div>
-         <div className="shrink-0 scroll-ml-6 snap-always snap-center">
-            <img src="https://images.unsplash.com/photo-1575424909138-46b05e5919ec?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=320&h=160&q=80" />
-        </div>
-        <div className="shrink-0 scroll-ml-6 snap-always snap-center">
-          <img src="https://images.unsplash.com/photo-1559333086-b0a56225a93c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=320&h=160&q=80" />
-         </div>  
-         <div className="shrink-0 scroll-ml-6 snap-always snap-center">
-            <img src="https://images.unsplash.com/photo-1575424909138-46b05e5919ec?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=320&h=160&q=80" />
-        </div>
-        <div className="shrink-0 scroll-ml-6 snap-always snap-center">
-          <img src="https://images.unsplash.com/photo-1559333086-b0a56225a93c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=320&h=160&q=80" />
-         </div> 
-         <div className="shrink-0 scroll-ml-6 snap-always snap-center">
-            <img src="https://images.unsplash.com/photo-1575424909138-46b05e5919ec?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=320&h=160&q=80" />
-        </div>
-        <div className="shrink-0 scroll-ml-6 snap-always snap-center">
-          <img src="https://images.unsplash.com/photo-1559333086-b0a56225a93c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=320&h=160&q=80" />
-         </div> 
-      </div>
-      </main>
-      <h1 className='text-6xl ml-10 m-3 text-white text-left jomhuria-regular'>You May Like</h1>
-      <main className="flex">
-      <div className="flex h-fit scroll-smooth scroll-pl-8 snap-mandatory snap-x overflow-x-scroll max-w-full">
-      <div className="shrink-0 scroll-ml-6 snap-always snap-center">
-         <img src="https://images.unsplash.com/photo-1590523277543-a94d2e4eb00b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=320&h=160&q=80" />
-        </div>
-         <div className="shrink-0 scroll-ml-6 snap-always snap-center">
-            <img src="https://images.unsplash.com/photo-1575424909138-46b05e5919ec?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=320&h=160&q=80" />
-        </div>
-        <div className="shrink-0 scroll-ml-6 snap-always snap-center">
-          <img src="https://images.unsplash.com/photo-1559333086-b0a56225a93c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=320&h=160&q=80" />
-         </div>  
-        <div className="shrink-0 scroll-ml-6 snap-always snap-center">
-          <img src="https://images.unsplash.com/photo-1604999565976-8913ad2ddb7c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=320&h=160&q=80" />
-        </div>
-        <div className="shrink-0 scroll-ml-6 snap-always snap-center">
-         <img src="https://images.unsplash.com/photo-1622890806166-111d7f6c7c97?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=320&h=160&q=80" />
-        </div>
-        <div className="shrink-0 scroll-ml-6 snap-always snap-center">
-         <img src="https://images.unsplash.com/photo-1590523277543-a94d2e4eb00b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=320&h=160&q=80" />
-        </div>
-         <div className="shrink-0 scroll-ml-6 snap-always snap-center">
-            <img src="https://images.unsplash.com/photo-1575424909138-46b05e5919ec?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=320&h=160&q=80" />
-        </div>
-        <div className="shrink-0 scroll-ml-6 snap-always snap-center">
-          <img src="https://images.unsplash.com/photo-1559333086-b0a56225a93c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=320&h=160&q=80" />
-         </div>  
-         <div className="shrink-0 scroll-ml-6 snap-always snap-center">
-            <img src="https://images.unsplash.com/photo-1575424909138-46b05e5919ec?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=320&h=160&q=80" />
-        </div>
-      </div>
-      </main>
-      </div>
-    );    
-  }
-          
-  export default HomePage;  
-  
+  );
+}
