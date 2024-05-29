@@ -67,17 +67,14 @@ const Signup = () => {
         };
 
         try {
-            await axios.post('https://adventureallyweb.azurewebsites.net/api/Account/register', payload);
+            const response = await axios.post('https://adventureallyweb.azurewebsites.net/api/Account/register', payload);
+            if (response.status === 200) {
+                console.log('User registration successful!');
             handleClear();
-            const verificationCode = Math.floor(100000 + Math.random() * 900000).toString();
-            localStorage.setItem('verificationCode', verificationCode);
-            localStorage.setItem('user', JSON.stringify(user));
-
-            alert('Your verification code is: ' + verificationCode);
-            navigate('/verify');
-
+            navigate('/login');
+            }
         } catch (error: any) {
-            console.error('Signup error:', error.response ? error.response.data : error.message);
+            console.error('Error while registering user:', error);
         }
     }
 

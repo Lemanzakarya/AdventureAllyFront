@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import Input from '../shared/Input';
 import './style.css';
 import { Link } from 'react-router-dom';
+import axios from 'axios';
 
 interface UserState {
     email: string;
@@ -25,25 +26,25 @@ const Login = () => {
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
     
-        // const payload = {
-        //     email: user.email,
-        //     password: user.password,
-        // };
+        const payload = {
+            email: user.email,
+            password: user.password,
+        };
         
         if (user.email && user.password) {
             try {
-                // const response = await axios.post('https://adventureallyweb.azurewebsites.net/api/Account/authenticate', payload);
+                 const response = await axios.post('https://adventureallyweb.azurewebsites.net/api/Account/authenticate', payload);
                 
-                // const isVerified = response.data.isVerified;
+                 const isVerified = response.data.isVerified;
     
-                // if (isVerified) {
-                //     console.log('Login successful');
-                //     handleClear();
+                 if (isVerified) {
+                     console.log('Login successful');
+                     handleClear();
                     navigate('/homepage');
-                // } else {
-                //     setErrorMessage('Your email is not verified. Please verify your email before logging in.');
-                //     setShowError(true);
-                // }
+                 } else {
+                     setErrorMessage('Your email is not verified. Please verify your email before logging in.');
+                     setShowError(true);
+                 }
             } catch (error: any) {
                 setErrorMessage(error.response?.data?.message || 'Invalid Credentials');
                 setShowError(true);
@@ -54,12 +55,12 @@ const Login = () => {
         }
     }
     
-    // const handleClear = () => {
-    //     setUser({
-    //         email: '',
-    //         password: '',
-    //     });
-    // }
+    const handleClear = () => {
+        setUser({
+            email: '',
+            password: '',
+        });
+    }
 
     return (
         <section className='section flex justify-content items-center p-10'>
